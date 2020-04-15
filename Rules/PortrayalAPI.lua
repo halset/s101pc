@@ -960,7 +960,7 @@ function CreateCurve(startPoint, endPoint, segments)
 
 	CheckType(startPoint, 'SpatialAssociation')
 	CheckType(endPoint, 'SpatialAssociation')
-	CheckTypeOrNil(segments, 'array:CurveSegment')
+	CheckType(segments, 'array:CurveSegment')
 
 	local curve = CreateSpatial(SpatialType.Curve, { StartPoint = startPoint, EndPoint = endPoint, Segments = segments })
 
@@ -993,7 +993,7 @@ function CreateSurface(exteriorRing, interiorRings)
 	CheckType(exteriorRing, 'SpatialAssociation')
 	CheckTypeOrNil(interiorRings, 'array:SpatialAssociation')
 
-	local surface = CreateSpatial(SpatialType.Surface, { ExteriorRing = exteriorRing, InteriorRings = interiorRings })
+	local surface = CreateSpatial(SpatialType.Surface, { ExteriorRing = exteriorRing, InteriorRings = interiorRings or {} })
 
 	surface.ExteriorRing = surface.Spatial.ExteriorRing
 	surface.InteriorRings = surface.Spatial.InteriorRings
